@@ -20,4 +20,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://theophiledoumashie.com/sitemap.xml
+Sitemap: https://theophile.stagebroad.com/sitemap.xml
