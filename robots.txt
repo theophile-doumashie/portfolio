@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://theophile.kesug.com/sitemap.xml
+# Crawlers des moteurs génératifs (GEO) - autorisés explicitement
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://theophiledoumashie.com/sitemap.xml
