@@ -2,3 +2,6 @@
 # ATTENTION : ne retirer le # qu'une fois le domaine personnalise rattache dans
 # Cloudflare Pages et effectivement joignable, sinon le site devient inaccessible.
 https://portfolio-6g8.pages.dev/*  https://theophile.stagebroad.com/:splat  301
+# Anciennes URLs du site theophile.kesug.com : tout ramener vers l'accueil.
+/portfolio-theophile-doumashie/*  /  301
+/portfolio-theophile-doumashie    /  301
