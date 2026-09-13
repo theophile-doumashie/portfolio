@@ -1,4 +1,4 @@
 # Evite le contenu duplique : le domaine .pages.dev renvoie vers le domaine final.
 # ATTENTION : ne retirer le # qu'une fois le domaine personnalise rattache dans
 # Cloudflare Pages et effectivement joignable, sinon le site devient inaccessible.
-# https://portfolio-6g8.pages.dev/*  https://theophile.stagebroad.com/:splat  301
+https://portfolio-6g8.pages.dev/*  https://theophile.stagebroad.com/:splat  301
