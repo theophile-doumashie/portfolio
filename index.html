@@ -36,6 +36,10 @@
 <link rel="stylesheet" href="assets/modernist.css">
 <link rel="stylesheet" href="assets/site.css">
 
+<!-- dans le <head>, APRÈS assets/site.css -->
+<link rel="stylesheet" href="assets/theme-dark.css">
+
+     
 <!-- Données structurées (Schema.org) : aident les moteurs de recherche ET
      les moteurs génératifs (SGE, Perplexity, ChatGPT...) à comprendre et
      citer correctement le profil, sans dépendre du rendu JavaScript. -->
@@ -94,6 +98,7 @@
 </script>
 <script src="assets/three-d-stage.js"></script>
 </head>
+     
 <body style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);overflow-x:hidden;margin:0">
 
   <div style="position:fixed;top:0;left:0;right:0;height:3px;background:var(--color-accent);transform-origin:0 50%;transform:scaleX(0);z-index:90;animation:growX linear both;animation-timeline:scroll(root)"></div>
@@ -220,7 +225,7 @@
   <section id="competences" style="border-top:2px solid var(--color-divider);background:var(--color-surface)">
     <div style="max-width:1240px;margin:0 auto;padding:clamp(48px,9vh,110px) clamp(16px,4vw,40px)">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:clamp(26px,5vh,48px)">
-        <h2 data-anim style="margin:0;font-size:clamp(34px,5.4vw,68px);line-height:.98;letter-spacing:-0.03em;text-transform:uppercase">Du câble<br>au CRM</h2>
+        <h2 data-reveal style="margin:0;font-size:clamp(34px,5.4vw,68px);line-height:.98;letter-spacing:-0.03em;text-transform:uppercase">Du câble<br>au CRM</h2>
         <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Je travaille sur toute la pile d'un centre de contacts. La sécurité n'est pas une couche de plus : elle les traverse toutes.</p>
       </div>
 
@@ -596,5 +601,7 @@
 
 <script src="assets/site.js"></script>
 <script type="module" src="assets/hero3d.js"></script>
+<!-- juste avant </body> -->
+<script src="assets/scroll-fx.js" defer></script>
 </body>
 </html>
