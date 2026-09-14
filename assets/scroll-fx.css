@@ -1,0 +1,68 @@
+/* ===================================================================
+   ANIMATIONS AU SCROLL + UTILITAIRES
+   A charger APRES assets/site.css :
+   <link rel="stylesheet" href="assets/scroll-fx.css">
+
+   Va de pair avec assets/scroll-fx.js. Aucun rapport avec le theme :
+   fonctionne en clair comme en sombre.
+   =================================================================== */
+
+/* --- Revelation mot a mot ---------------------------------------- */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  transition: opacity .5s cubic-bezier(.2,.7,.2,1),
+              transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.is-revealed .word { opacity: 1; transform: none; }
+
+/* Sur un titre, un leger basculement rend le mouvement plus vivant */
+h1 .word, h2 .word { transform: translateY(0.5em) rotate(1.5deg); }
+.is-revealed .word { transform: none; }
+
+/* --- Trait qui se trace ------------------------------------------ */
+.rule-draw {
+  display: block;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.rule-draw.is-revealed { transform: scaleX(1); }
+
+/* --- Micro-libelle facon terminal : <span class="mono">tech</span>
+       s'affiche [ TECH ] ------------------------------------------ */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+}
+.mono::before { content: "[ "; color: var(--color-accent); }
+.mono::after  { content: " ]"; color: var(--color-accent); }
+
+/* --- Numero de section : <span class="section-num">03</span> ------ */
+.section-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  vertical-align: super;
+  margin-left: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .rule-draw {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+}
