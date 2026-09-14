@@ -1,0 +1,86 @@
+/* ===================================================================
+   THEME SOMBRE — a charger APRES assets/site.css dans index.html :
+   <link rel="stylesheet" href="assets/theme-dark.css">
+
+   Ne reecrit rien : surcharge uniquement les variables de couleur,
+   donc tout le site bascule d'un bloc, y compris les SVG des cartes
+   projet qui utilisent var(--color-text).
+   =================================================================== */
+
+:root {
+  --color-bg:           #0a0a0c;
+  --color-surface:      #121216;
+  --color-text:         #f0f0ee;
+  --color-divider:      #26262e;
+  --color-neutral-500:  #5c5c68;
+  --color-neutral-700:  #9b9ba6;
+  --color-accent:       #ff3b2f;
+  --color-accent-700:   #b3261c;
+}
+
+html { background: var(--color-bg); }
+
+::selection { background: var(--color-accent); color: #fff; }
+
+/* Champs de formulaire : le placeholder par defaut devient illisible */
+.input::placeholder { color: #6e6e7a; }
+.input:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* Barre de defilement assortie */
+* { scrollbar-color: var(--color-divider) transparent; }
+
+/* ------------------------------------------------------------------
+   MICRO-LIBELLES facon terminal : <span class="mono">tech</span>
+   s'affiche comme [ TECH ]
+   ------------------------------------------------------------------ */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+}
+.mono::before { content: "[ "; color: var(--color-accent); }
+.mono::after  { content: " ]"; color: var(--color-accent); }
+
+/* ------------------------------------------------------------------
+   NUMEROS DE SECTION : <span class="section-num">03</span>
+   ------------------------------------------------------------------ */
+.section-num {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  vertical-align: super;
+  margin-left: 10px;
+}
+
+/* ------------------------------------------------------------------
+   ANIMATIONS DE SCROLL — pilotees par assets/scroll-fx.js
+   ------------------------------------------------------------------ */
+
+/* Revelation mot a mot */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em) rotate(2deg);
+  transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.is-revealed .word { opacity: 1; transform: none; }
+
+/* Trait qui se trace sous les titres */
+.rule-draw {
+  display: block; height: 2px; background: var(--color-accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.is-revealed .rule-draw { transform: scaleX(1); }
+
+/* Les cartes projet gagnent un liisere accent au survol */
+.project-card:hover { border-color: var(--color-accent) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .word { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .rule-draw { transform: scaleX(1) !important; transition: none !important; }
+}
