@@ -1,0 +1,30 @@
+# Théophile Doumashie
+
+> Ingénieur systèmes, réseaux et VoIP basé à Lomé, Togo. Conçoit et exploite des
+> plateformes de téléphonie et des centres de contacts, puis les sécurise.
+
+En poste chez ADKONTACT TECHNOLOGIES depuis 2023 (centres de contacts,
+infrastructures clients, appels d'offres). En master 1 sécurité des systèmes
+d'information et IoT à l'UCAO-UUT. Disponible en mission freelance à distance,
+en français ou en anglais (UTC+0).
+
+## Domaines de compétence
+- Téléphonie / VoIP : Asterisk, PJSIP, ARI, FreePBX, VICIdial, GOautodial, Kamailio, trunks SIP, passerelles GSM
+- Application : Twenty CRM, Angular, SIP.js / WebRTC, Grafana, Power BI
+- Réseau : Cisco, MikroTik, VLAN, QoS, OpenVPN, STUN/TURN
+- Système : AlmaLinux, Ubuntu, CentOS, Windows Server, Docker Compose, Ansible, Zabbix
+- Sécurité : SELinux, firewalld, fail2ban, SSH par clé, MITRE ATT&CK, OSINT, forensique
+
+## Secteurs d'intervention
+Banque, assurance vie, assurance santé, secteur gouvernemental, organisations
+non gouvernementales, organisations culturelles, corps diplomatique, groupes
+multi-pays et multisites.
+
+## Pages
+- Portfolio complet (projets détaillés, parcours, services, contact) : https://theophile.stagebroad.com/
+
+## Contact
+- E-mail : theophiledumashie@gmail.com
+- LinkedIn : https://www.linkedin.com/in/theophile-doumashie
+- GitHub : https://github.com/theophile-doumashie
+- Freelancer : https://www.freelancer.com/u/devopscamesec

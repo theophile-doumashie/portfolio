@@ -1,0 +1,592 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Théophile Doumashie — Ingénieur systèmes, réseaux et VoIP à Lomé, Togo</title>
+<!--<meta name="description" content="Portfolio de Théophile Doumashie, ingénieur systèmes, réseaux et VoIP basé à Lomé, Togo. Architecture Asterisk/VICIdial, centres de contacts, durcissement de serveurs Linux, disponible en freelance (Upwork, Freelancer) en français et en anglais."> -->
+<meta name="description" content="Ingénieur systèmes, réseaux et VoIP à Lomé, Togo. Architecture Asterisk et VICIdial, centres de contacts, durcissement de serveurs Linux. Freelance FR/EN.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Théophile Doumashie">
+<link rel="canonical" href="https://theophile.stagebroad.com/">
+<meta name="google-site-verification" content="arSk2B8_V-J1r9TkQo1-crGLkrYQHPP3scCHzKUZwbE" />
+     
+<!-- Réseaux sociaux (Open Graph / Twitter Card) -->
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Théophile Doumashie">
+<meta property="og:title" content="Théophile Doumashie — Ingénieur systèmes, réseaux et VoIP">
+<meta property="og:description" content="Portfolio d'un ingénieur systèmes, réseaux et VoIP basé à Lomé, Togo : architecture Asterisk/VICIdial, centres de contacts, durcissement de serveurs, disponible en freelance.">
+<meta property="og:url" content="https://theophile.stagebroad.com/">
+<meta property="og:image" content="https://theophile.stagebroad.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Théophile Doumashie — Ingénieur systèmes, réseaux et VoIP">
+<meta name="twitter:description" content="Portfolio d'un ingénieur systèmes, réseaux et VoIP basé à Lomé, Togo, disponible en freelance.">
+<meta name="twitter:image" content="https://theophile.stagebroad.com/assets/og-image.png">
+
+<!-- Ciblage géographique (Lomé, Togo) -->
+<meta name="geo.region" content="TG-M">
+<meta name="geo.placename" content="Lomé, Togo">
+<meta name="geo.position" content="6.1319;1.2228">
+<meta name="ICBM" content="6.1319, 1.2228">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/modernist.css">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/scroll-fx.css">
+
+<!-- dans le <head>, APRÈS assets/site.css 
+<link rel="stylesheet" href="/assets/theme-dark.css"> -->
+
+     
+<!-- Données structurées (Schema.org) : aident les moteurs de recherche ET
+     les moteurs génératifs (SGE, Perplexity, ChatGPT...) à comprendre et
+     citer correctement le profil, sans dépendre du rendu JavaScript. -->
+<script is:inline type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Théophile Doumashie",
+  "url": "https://theophile.stagebroad.com/",
+  "image": "https://theophile.stagebroad.com/assets/og-image.png",
+  "jobTitle": "Ingénieur systèmes, réseaux et VoIP",
+  "description": "Ingénieur systèmes, réseaux et VoIP basé à Lomé, Togo. Conception et exploitation de plateformes de téléphonie et de centres de contacts (Asterisk, VICIdial, GOautodial), durcissement de serveurs Linux, freelance en français et en anglais.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Lomé",
+    "addressCountry": "TG"
+  },
+  "email": "mailto:theophiledumashie@gmail.com",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "ADKONTACT"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "UCAO-UUT" },
+    { "@type": "CollegeOrUniversity", "name": "Institut Polytechnique Defitech" }
+  ],
+  "knowsAbout": [
+    "Asterisk", "VICIdial", "GOautodial", "PJSIP", "WebRTC", "Kamailio",
+    "SIP", "Réseaux VoIP", "Centres de contacts", "SELinux", "Durcissement Linux",
+    "Sécurité des systèmes d'information", "IoT"
+  ],
+  "knowsLanguage": ["fr", "en"],
+  "sameAs": [
+    "https://www.linkedin.com/in/theophile-doumashie",
+    "https://github.com/theophile-doumashie",
+    "https://www.freelancer.com/u/devopscamesec"
+  ]
+}
+</script>
+<script is:inline type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js"
+  },
+  "integrity": {
+    "https://unpkg.com/three@0.184.0/build/three.module.js": "sha384-8FCZ1eVO6it4+pbec2aDtnTrwjWXZLJRC+MAGCIPDgsYnUrl/E0A2YlF8ioMKI/J",
+    "https://unpkg.com/three@0.184.0/build/three.core.js": "sha384-dw2ooPewaEIrAgl6oFDBmmBWCE9oW9LxRGcfwZ0hLvEprzo202wXl7vCYHRlSnOT",
+    "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js": "sha384-4rziNxOBZKQ69i+w+f89KJ55TCYquwchVbByQwmaOeIOXdOU2PLDn3kOfXHwIJC9",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js": "sha384-nbwtoZENJD3Vq+ACK0CuGQdPMuDWHkamC2KJD70EV5nfg6jQjfppKOea07YJN+N3",
+    "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js": "sha384-VofkvpG6HERhFCYbsUOHeNXBCqID2nfqkQqnVzE1jc/oPcz+qJ13ADdXH08hE+cQ"
+  }
+}
+</script>
+<script is:inline src="/assets/three-d-stage.js"></script>
+</head>
+     
+<body style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);overflow-x:hidden;margin:0">
+
+  <div style="position:fixed;top:0;left:0;right:0;height:3px;background:var(--color-accent);transform-origin:0 50%;transform:scaleX(0);z-index:90;animation:growX linear both;animation-timeline:scroll(root)"></div>
+
+  <Header />
+
+  <main>
+  <section id="accueil" style="position:relative">
+    <canvas id="hero3d" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.95"></canvas>
+    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(32px,7vh,72px) clamp(16px,4vw,40px) 0">
+      <div style="display:flex;align-items:baseline;gap:16px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent-700);animation:riseSm .6s ease-out both">
+        <span>Lomé, Togo</span>
+        <span style="flex:1;height:2px;background:var(--color-divider);transform-origin:left;animation:growX .9s .15s cubic-bezier(.2,.7,.2,1) both"></span>
+        <span>Disponible en freelance</span>
+      </div>
+
+      <h1 aria-label="Théophile Doumashie" style="margin:clamp(18px,3vh,30px) 0 0;font-size:clamp(40px,13.2vw,188px);line-height:.86;letter-spacing:-0.035em;text-transform:uppercase">
+        <span data-hero-line style="display:block;text-transform:none;white-space:nowrap">Théophile</span>
+        <span data-hero-line style="display:block;color:var(--color-accent);white-space:nowrap">Doumashie</span>
+      </h1>
+
+      <div style="margin-top:clamp(24px,4vh,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,4vw,56px);border-top:2px solid var(--color-divider);padding-top:24px">
+        <p style="margin:0;font-size:clamp(20px,2.4vw,31px);line-height:1.22;text-wrap:balance;font-weight:600;max-width:26ch;text-wrap:pretty;animation:rise .7s .25s cubic-bezier(.2,.7,.2,1) both">Ingénieur systèmes, réseaux et VoIP. Je conçois des centres de contacts et des plateformes de téléphonie qui tiennent la charge, puis je les sécurise.</p>
+        <div>
+          <p class="text-muted" style="margin:0 0 20px;font-size:15px;max-width:44ch;text-wrap:pretty;animation:rise .7s .4s cubic-bezier(.2,.7,.2,1) both">Asterisk, VICIdial, WebRTC, Linux durci. En poste chez ADKONTACT depuis 2023, en master de cybersécurité à l'UCAO.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;animation:rise .7s .5s cubic-bezier(.2,.7,.2,1) both">
+            <a class="btn btn-primary" href="#projets">Voir les projets</a>
+            <a class="btn btn-secondary" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:clamp(44px,8vh,84px) auto 0;padding:0 clamp(16px,4vw,40px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+      <div data-anim style="padding:24px 20px 24px 0;border-right:2px solid var(--color-divider)">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,5.6vw,76px);line-height:.94;letter-spacing:-0.04em"><span data-count="98">0</span> %</div>
+        <div class="text-muted" style="font-size:13px;margin-top:6px">Qualité de service tenue</div>
+      </div>
+      <div data-anim style="padding:24px 20px;border-right:2px solid var(--color-divider)">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,5.6vw,76px);line-height:.94;letter-spacing:-0.04em"><span data-count="250">0</span>+</div>
+        <div class="text-muted" style="font-size:13px;margin-top:6px">Utilisateurs en production</div>
+      </div>
+      <div data-anim style="padding:24px 20px;border-right:2px solid var(--color-divider)">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,5.6vw,76px);line-height:.94;letter-spacing:-0.04em;color:var(--color-accent)">−<span data-count="30">0</span> %</div>
+        <div class="text-muted" style="font-size:13px;margin-top:6px">Incidents</div>
+      </div>
+      <div data-anim style="padding:24px 0 24px 20px">
+        <div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,5.6vw,76px);line-height:.94;letter-spacing:-0.04em"><span data-count="3">0</span></div>
+        <div class="text-muted" style="font-size:13px;margin-top:6px">Ans en production</div>
+      </div>
+    </div>
+  </section>
+
+  <div style="overflow:hidden;border-bottom:2px solid var(--color-divider);padding:12px 0;margin-top:clamp(44px,8vh,84px)" aria-hidden="true">
+    <div style="display:flex;width:max-content;animation:drift 34s linear infinite">
+      <div style="display:flex;gap:32px;padding-right:34px;font-family:var(--font-heading);font-weight:800;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap">
+        <span>Asterisk</span><span style="color:var(--color-accent)">/</span><span>PJSIP</span><span style="color:var(--color-accent)">/</span><span>WebRTC</span><span style="color:var(--color-accent)">/</span><span>Kamailio</span><span style="color:var(--color-accent)">/</span><span>VICIdial</span><span style="color:var(--color-accent)">/</span><span>SELinux</span><span style="color:var(--color-accent)">/</span><span>OpenVPN</span><span style="color:var(--color-accent)">/</span><span>QoS</span><span style="color:var(--color-accent)">/</span><span>MITRE ATT&amp;CK</span><span style="color:var(--color-accent)">/</span>
+      </div>
+      <div style="display:flex;gap:32px;padding-right:34px;font-family:var(--font-heading);font-weight:800;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap">
+        <span>Asterisk</span><span style="color:var(--color-accent)">/</span><span>PJSIP</span><span style="color:var(--color-accent)">/</span><span>WebRTC</span><span style="color:var(--color-accent)">/</span><span>Kamailio</span><span style="color:var(--color-accent)">/</span><span>VICIdial</span><span style="color:var(--color-accent)">/</span><span>SELinux</span><span style="color:var(--color-accent)">/</span><span>OpenVPN</span><span style="color:var(--color-accent)">/</span><span>QoS</span><span style="color:var(--color-accent)">/</span><span>MITRE ATT&amp;CK</span><span style="color:var(--color-accent)">/</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="apropos" style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+     <h2 data-reveal style="margin:0 0 clamp(26px,5vh,44px);font-size:clamp(40px,7.4vw,104px);line-height:.92;letter-spacing:-0.042em;text-wrap:balance;text-transform:uppercase">À propos<span class="section-num">01</span></h2>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px)">
+      <div data-anim style="flex:1 1 240px;min-width:0;max-width:340px;min-height:280px;background:var(--color-accent-700);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase">Lomé, Togo</span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(64px,9vw,104px);line-height:.78;letter-spacing:-0.05em">TD</span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase">Ingénieur systèmes, réseaux et VoIP</span>
+      </div>
+      <div style="flex:3 1 320px;min-width:0">
+        <p data-anim style="margin:0 0 16px;font-size:clamp(17px,1.8vw,21px);line-height:1.35;font-weight:600;max-width:46ch;text-wrap:pretty">Je travaille sur toute la chaîne d'un centre de contacts : le câble, le réseau, le serveur, la signalisation SIP et l'écran que voit l'agent.</p>
+        <p data-anim class="text-muted" style="margin:0 0 16px;font-size:15px;max-width:58ch;text-wrap:pretty">Depuis 2023 chez ADKONTACT à Lomé, je conçois et j'exploite des plateformes de téléphonie pour des centres d'appels, je réponds à des appels d'offres et j'interviens sur les infrastructures clientes. En parallèle, je termine un master en sécurité des systèmes d'information et IoT à l'UCAO-UUT.</p>
+        <p data-anim class="text-muted" style="margin:0 0 24px;font-size:15px;max-width:58ch;text-wrap:pretty">Ma manière de travailler tient en une règle : rien ne part en production sans avoir été mesuré, durci et documenté. Les décisions d'architecture sont écrites avant le code, et la sécurité n'arrive jamais à la fin.</p>
+        <dl data-anim style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0 clamp(20px,3vw,40px)">
+          <div style="padding:12px 0;border-top:2px solid var(--color-divider)"><dt class="text-muted" style="font-size:12px;letter-spacing:0.07em;text-transform:uppercase">Basé à</dt><dd style="margin:2px 0 0;font-size:15px;font-weight:600">Lomé, Togo — UTC+0</dd></div>
+          <div style="padding:12px 0;border-top:2px solid var(--color-divider)"><dt class="text-muted" style="font-size:12px;letter-spacing:0.07em;text-transform:uppercase">Langues</dt><dd style="margin:2px 0 0;font-size:15px;font-weight:600">Français, anglais, éwé</dd></div>
+          <div style="padding:12px 0;border-top:2px solid var(--color-divider)"><dt class="text-muted" style="font-size:12px;letter-spacing:0.07em;text-transform:uppercase">Formation</dt><dd style="margin:2px 0 0;font-size:15px;font-weight:600">Master 1 sécurité SI &amp; IoT</dd></div>
+          <div style="padding:12px 0;border-top:2px solid var(--color-divider)"><dt class="text-muted" style="font-size:12px;letter-spacing:0.07em;text-transform:uppercase">Recherche</dt><dd style="margin:2px 0 0;font-size:15px;font-weight:600">Détection de botnets IoT</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(32px,5vh,56px);border-top:2px solid var(--color-divider);padding-top:24px;display:flex;flex-wrap:wrap;gap:16px clamp(24px,4vw,56px)">
+      <h3 data-anim style="flex:1 1 200px;margin:0;font-size:23px;text-transform:uppercase;letter-spacing:-0.01em">Secteurs<br>d'intervention</h3>
+      <div data-anim style="flex:3 1 320px;min-width:0">
+        <p style="margin:0 0 16px;font-size:clamp(16px,1.7vw,20px);line-height:1.35;font-weight:600;max-width:52ch;text-wrap:pretty">J'ai de l'expérience dans plusieurs domaines à travers plusieurs projets, dans des entreprises multisites et des groupes présents dans plusieurs pays.</p>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:0 clamp(24px,4vw,48px)">
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Banque</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Assurance vie</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Assurance santé</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Secteur gouvernemental</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Organisations non gouvernementales</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Organisations culturelles</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Corps diplomatique</li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px;display:flex;gap:12px"><span style="color:var(--color-accent);font-weight:800">—</span>Groupes multi-pays et multisites</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences" style="border-top:2px solid var(--color-divider);background:var(--color-surface)">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:clamp(26px,5vh,48px)">
+        <h2 data-reveal style="margin:0;font-size:clamp(40px,7.4vw,104px);line-height:.92;letter-spacing:-0.042em;text-wrap:balance;text-transform:uppercase">Du câble<br>au CRM<span class="section-num">02</span></h2>
+        <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Je travaille sur toute la pile d'un centre de contacts. La sécurité n'est pas une couche de plus : elle les traverse toutes.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));border-top:2px solid var(--color-divider)">
+        <div style="border-bottom:2px solid var(--color-divider)">
+          <div data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px 28px;padding:24px 24px 24px 0;border-bottom:2px solid var(--color-divider)">
+            <div><h3 style="margin:0;font-size:23px">Application</h3><p class="text-muted" style="margin:4px 0 0;font-size:13px">Ce que voient les agents et les superviseurs.</p></div>
+            <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:15px;align-content:center"><li>Twenty CRM</li><li>Angular</li><li>SIP.js / WebRTC</li><li>Grafana</li><li>Power BI</li></ul>
+          </div>
+          <div data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px 28px;padding:24px 24px 24px 0;border-bottom:2px solid var(--color-divider)">
+            <div><h3 style="margin:0;font-size:23px;color:var(--color-accent)">Voix</h3><p class="text-muted" style="margin:4px 0 0;font-size:13px">Signalisation, médias et campagnes.</p></div>
+            <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:15px;align-content:center"><li>Asterisk</li><li>PJSIP</li><li>ARI</li><li>FreePBX</li><li>VICIdial / GOautodial</li><li>Kamailio</li><li>Trunks SIP</li><li>Passerelles GSM</li></ul>
+          </div>
+          <div data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px 28px;padding:24px 24px 24px 0;border-bottom:2px solid var(--color-divider)">
+            <div><h3 style="margin:0;font-size:23px">Réseau</h3><p class="text-muted" style="margin:4px 0 0;font-size:13px">Transporter la voix sans la dégrader.</p></div>
+            <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:15px;align-content:center"><li>Cisco</li><li>MikroTik</li><li>VLAN</li><li>QoS</li><li>OpenVPN</li><li>STUN / TURN</li></ul>
+          </div>
+          <div data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px 28px;padding:24px 24px 24px 0">
+            <div><h3 style="margin:0;font-size:23px">Système</h3><p class="text-muted" style="margin:4px 0 0;font-size:13px">Des serveurs qu'on peut reconstruire.</p></div>
+            <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:15px;align-content:center"><li>AlmaLinux</li><li>Ubuntu</li><li>CentOS</li><li>Windows Server</li><li>Docker Compose</li><li>Ansible</li><li>Zabbix</li></ul>
+          </div>
+        </div>
+        <div data-anim style="align-self:start;border-left:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);padding:24px;display:flex;flex-direction:column;gap:16px;background:var(--color-bg);max-width:100%">
+          <h3 style="margin:0;font-size:23px">Sécurité</h3>
+          <p class="text-muted" style="margin:0;font-size:13px">Transversale, de la première règle de pare-feu au dernier rapport.</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px">
+            <li class="tag tag-outline">SELinux</li><li class="tag tag-outline">firewalld</li><li class="tag tag-outline">fail2ban</li><li class="tag tag-outline">SSH par clé</li><li class="tag tag-outline">MITRE ATT&amp;CK</li><li class="tag tag-outline">OSINT</li><li class="tag tag-outline">Forensique</li><li class="tag tag-outline">CTF</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:clamp(36px,6vh,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:20px">
+        <h3 data-anim style="margin:0;font-size:25px;text-transform:uppercase;letter-spacing:-0.02em">Le matériel<br>en 3D</h3>
+        <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Les trois équipements sur lesquels repose une plateforme de téléphonie. Choisissez-en un et faites-le tourner à la souris.</p>
+      </div>
+      <div data-anim style="margin-bottom:16px">
+        <div class="seg" data-model-filters role="group" aria-label="Choisir le modèle 3D" style="flex-wrap:wrap"></div>
+      </div>
+      <div data-anim data-stage-host style="position:relative;border:2px solid var(--color-divider);background:var(--color-bg);height:clamp(320px,48vh,480px)">
+        <div data-3d-loading style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:12px;pointer-events:none">
+          <span style="width:10px;height:10px;background:var(--color-accent);animation:blink 1.2s infinite"></span>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700)">Chargement du modèle 3D</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets" style="border-top:2px solid var(--color-divider)">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:clamp(22px,4vh,36px)">
+        <h2 data-anim data-reveal style="margin:0;font-size:clamp(40px,7.4vw,104px);line-height:.92;letter-spacing:-0.042em;text-wrap:balance;text-transform:uppercase">Projets<span class="section-num">03</span></h2>
+        <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Des systèmes réels, avec leurs contraintes et les arbitrages qui vont avec. Filtrez par domaine, ouvrez une fiche pour le détail.</p>
+      </div>
+
+      <div style="padding-bottom:20px;border-bottom:2px solid var(--color-divider)">
+        <div class="seg" data-project-filters role="group" aria-label="Filtrer les projets" style="flex-wrap:wrap"></div>
+      </div>
+
+      <div data-projects-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:clamp(16px,2vw,26px);padding-top:clamp(20px,3vh,32px)">
+      <article class="project-card" data-card data-id="webrtc-crm" data-cat="Voix" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Le navigateur devient le téléphone de l&#39;agent" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Voix" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="111" width="9" height="15" fill="var(--color-text)"></rect><rect x="31" y="38" width="9" height="88" fill="var(--color-text)"></rect><rect x="48" y="82" width="9" height="44" fill="var(--color-accent)"></rect><rect x="65" y="34" width="9" height="92" fill="var(--color-text)"></rect><rect x="82" y="39" width="9" height="87" fill="var(--color-text)"></rect><rect x="99" y="52" width="9" height="74" fill="var(--color-text)"></rect><rect x="116" y="71" width="9" height="55" fill="var(--color-text)"></rect><rect x="133" y="69" width="9" height="57" fill="var(--color-accent)"></rect><rect x="150" y="70" width="9" height="56" fill="var(--color-text)"></rect><rect x="167" y="66" width="9" height="60" fill="var(--color-text)"></rect><rect x="184" y="72" width="9" height="54" fill="var(--color-text)"></rect><rect x="201" y="74" width="9" height="52" fill="var(--color-text)"></rect><rect x="218" y="30" width="9" height="96" fill="var(--color-accent)"></rect><rect x="235" y="59" width="9" height="67" fill="var(--color-text)"></rect><rect x="252" y="82" width="9" height="44" fill="var(--color-text)"></rect><rect x="269" y="37" width="9" height="89" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-accent">Voix</span>
+            <span class="mono" style="white-space:nowrap">En cours, 2026</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Le navigateur devient le téléphone de l&#39;agent</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Plateforme unifiée Twenty CRM et téléphonie WebRTC : l&#39;agent appelle, reçoit et qualifie sans quitter son CRM, sans softphone.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Asterisk 22 · PJSIP · ARI · WebRTC / WSS</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+      <article class="project-card" data-card data-id="goautodial-angular" data-cat="Application" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Refonte d&#39;un centre de contacts en production" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Application" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="72" width="9" height="54" fill="var(--color-text)"></rect><rect x="31" y="54" width="9" height="72" fill="var(--color-text)"></rect><rect x="48" y="35" width="9" height="91" fill="var(--color-accent)"></rect><rect x="65" y="34" width="9" height="92" fill="var(--color-text)"></rect><rect x="82" y="77" width="9" height="49" fill="var(--color-text)"></rect><rect x="99" y="34" width="9" height="92" fill="var(--color-text)"></rect><rect x="116" y="67" width="9" height="59" fill="var(--color-text)"></rect><rect x="133" y="46" width="9" height="80" fill="var(--color-accent)"></rect><rect x="150" y="49" width="9" height="77" fill="var(--color-text)"></rect><rect x="167" y="34" width="9" height="92" fill="var(--color-text)"></rect><rect x="184" y="87" width="9" height="39" fill="var(--color-text)"></rect><rect x="201" y="59" width="9" height="67" fill="var(--color-text)"></rect><rect x="218" y="95" width="9" height="31" fill="var(--color-accent)"></rect><rect x="235" y="29" width="9" height="97" fill="var(--color-text)"></rect><rect x="252" y="99" width="9" height="27" fill="var(--color-text)"></rect><rect x="269" y="36" width="9" height="90" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-neutral">Application</span>
+            <span class="mono" style="white-space:nowrap">ADKONTACT, 2026</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Refonte d&#39;un centre de contacts en production</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Remplacer l&#39;interface PHP de GOautodial par une application Angular bilingue, sans toucher au backend qui tourne en production.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Angular · RxJS · SIP.js · i18n FR/EN</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+      <article class="project-card" data-card data-id="ssh-logs" data-cat="Sécurité" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Repérer 6 946 attaquants dans des logs SSH" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Sécurité" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="90" width="9" height="36" fill="var(--color-text)"></rect><rect x="31" y="51" width="9" height="75" fill="var(--color-text)"></rect><rect x="48" y="88" width="9" height="38" fill="var(--color-accent)"></rect><rect x="65" y="68" width="9" height="58" fill="var(--color-text)"></rect><rect x="82" y="33" width="9" height="93" fill="var(--color-text)"></rect><rect x="99" y="34" width="9" height="92" fill="var(--color-text)"></rect><rect x="116" y="56" width="9" height="70" fill="var(--color-text)"></rect><rect x="133" y="97" width="9" height="29" fill="var(--color-accent)"></rect><rect x="150" y="97" width="9" height="29" fill="var(--color-text)"></rect><rect x="167" y="106" width="9" height="20" fill="var(--color-text)"></rect><rect x="184" y="108" width="9" height="18" fill="var(--color-text)"></rect><rect x="201" y="87" width="9" height="39" fill="var(--color-text)"></rect><rect x="218" y="109" width="9" height="17" fill="var(--color-accent)"></rect><rect x="235" y="100" width="9" height="26" fill="var(--color-text)"></rect><rect x="252" y="47" width="9" height="79" fill="var(--color-text)"></rect><rect x="269" y="39" width="9" height="87" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-accent">Sécurité</span>
+            <span class="mono" style="white-space:nowrap">Master, 2026</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Repérer 6 946 attaquants dans des logs SSH</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Un pipeline de données qui transforme des logs d&#39;authentification bruts en règles de détection et en tableau de bord de SOC.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Python · boto3 · AWS S3 · DuckDB</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+      <article class="project-card" data-card data-id="saas-ccaas" data-cat="Application" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Les fondations d&#39;un centre de contacts en SaaS" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Application" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="36" width="9" height="90" fill="var(--color-text)"></rect><rect x="31" y="109" width="9" height="17" fill="var(--color-text)"></rect><rect x="48" y="90" width="9" height="36" fill="var(--color-accent)"></rect><rect x="65" y="96" width="9" height="30" fill="var(--color-text)"></rect><rect x="82" y="43" width="9" height="83" fill="var(--color-text)"></rect><rect x="99" y="69" width="9" height="57" fill="var(--color-text)"></rect><rect x="116" y="37" width="9" height="89" fill="var(--color-text)"></rect><rect x="133" y="98" width="9" height="28" fill="var(--color-accent)"></rect><rect x="150" y="56" width="9" height="70" fill="var(--color-text)"></rect><rect x="167" y="90" width="9" height="36" fill="var(--color-text)"></rect><rect x="184" y="50" width="9" height="76" fill="var(--color-text)"></rect><rect x="201" y="45" width="9" height="81" fill="var(--color-text)"></rect><rect x="218" y="95" width="9" height="31" fill="var(--color-accent)"></rect><rect x="235" y="83" width="9" height="43" fill="var(--color-text)"></rect><rect x="252" y="84" width="9" height="42" fill="var(--color-text)"></rect><rect x="269" y="74" width="9" height="52" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-neutral">Application</span>
+            <span class="mono" style="white-space:nowrap">En conception, 2026</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Les fondations d&#39;un centre de contacts en SaaS</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Passer d&#39;une vision très large à un socle livrable : le contrat d&#39;API d&#39;abord, trois modules, l&#39;isolation des clients dès la base de données.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">OpenAPI 3.1 · PostgreSQL · Row Level Security · SIP</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+      <article class="project-card" data-card data-id="durcissement" data-cat="Système" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Des serveurs VoIP face à de vraies attaques" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Système" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="47" width="9" height="79" fill="var(--color-text)"></rect><rect x="31" y="70" width="9" height="56" fill="var(--color-text)"></rect><rect x="48" y="28" width="9" height="98" fill="var(--color-accent)"></rect><rect x="65" y="68" width="9" height="58" fill="var(--color-text)"></rect><rect x="82" y="52" width="9" height="74" fill="var(--color-text)"></rect><rect x="99" y="94" width="9" height="32" fill="var(--color-text)"></rect><rect x="116" y="66" width="9" height="60" fill="var(--color-text)"></rect><rect x="133" y="94" width="9" height="32" fill="var(--color-accent)"></rect><rect x="150" y="30" width="9" height="96" fill="var(--color-text)"></rect><rect x="167" y="97" width="9" height="29" fill="var(--color-text)"></rect><rect x="184" y="45" width="9" height="81" fill="var(--color-text)"></rect><rect x="201" y="91" width="9" height="35" fill="var(--color-text)"></rect><rect x="218" y="55" width="9" height="71" fill="var(--color-accent)"></rect><rect x="235" y="96" width="9" height="30" fill="var(--color-text)"></rect><rect x="252" y="57" width="9" height="69" fill="var(--color-text)"></rect><rect x="269" y="76" width="9" height="50" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-neutral">Système</span>
+            <span class="mono" style="white-space:nowrap">En production</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Des serveurs VoIP face à de vraies attaques</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Un audit non destructif d&#39;abord, un durcissement progressif ensuite, chaque étape validée avec un accès console de secours.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">AlmaLinux · Ubuntu · SELinux · firewalld</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+      <article class="project-card" data-card data-id="reseaux-entreprise" data-cat="Réseau" tabindex="0" role="button" aria-label="Ouvrir la fiche du projet : Deux réseaux d&#39;entreprise, du câble au plan de numérotation" style="border:2px solid var(--color-divider);background:var(--color-bg);display:flex;flex-direction:column;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .3s;animation:popIn .5s cubic-bezier(.2,.7,.2,1) both">
+        <div style="border-bottom:2px solid var(--color-divider);height:150px;flex:none;background:var(--color-surface)">
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schéma de trafic — Réseau" style="display:block;width:100%;height:150px">
+            <line x1="14" y1="126" x2="286" y2="126" stroke="var(--color-text)" stroke-width="2"></line>
+            <line x1="14" y1="22" x2="286" y2="22" stroke="var(--color-divider)" stroke-width="2"></line>
+            <rect x="14" y="74" width="9" height="52" fill="var(--color-text)"></rect><rect x="31" y="45" width="9" height="81" fill="var(--color-text)"></rect><rect x="48" y="77" width="9" height="49" fill="var(--color-accent)"></rect><rect x="65" y="108" width="9" height="18" fill="var(--color-text)"></rect><rect x="82" y="82" width="9" height="44" fill="var(--color-text)"></rect><rect x="99" y="82" width="9" height="44" fill="var(--color-text)"></rect><rect x="116" y="41" width="9" height="85" fill="var(--color-text)"></rect><rect x="133" y="88" width="9" height="38" fill="var(--color-accent)"></rect><rect x="150" y="52" width="9" height="74" fill="var(--color-text)"></rect><rect x="167" y="92" width="9" height="34" fill="var(--color-text)"></rect><rect x="184" y="104" width="9" height="22" fill="var(--color-text)"></rect><rect x="201" y="73" width="9" height="53" fill="var(--color-text)"></rect><rect x="218" y="71" width="9" height="55" fill="var(--color-accent)"></rect><rect x="235" y="60" width="9" height="66" fill="var(--color-text)"></rect><rect x="252" y="52" width="9" height="74" fill="var(--color-text)"></rect><rect x="269" y="48" width="9" height="78" fill="var(--color-text)"></rect>
+          </svg>
+        </div>
+        <div class="card" style="background:transparent;padding:16px;flex:1">
+          <div class="card-meta" style="width:100%;justify-content:space-between;color:var(--color-neutral-700)">
+            <span class="tag tag-neutral">Réseau</span>
+            <span class="mono" style="white-space:nowrap">Livré</span>
+          </div>
+          <h3 class="card-title" style="margin:0;letter-spacing:-0.015em">Deux réseaux d&#39;entreprise, du câble au plan de numérotation</h3>
+          <p class="card-body" style="opacity:1;color:var(--color-neutral-700)">Architectures réseau, sécurité et téléphonie complètes, rédigées pour répondre à des appels d&#39;offres.</p>
+          <p class="card-body" style="flex:none;opacity:1;color:var(--color-neutral-700);font-size:12px;letter-spacing:0.04em;text-transform:uppercase">Cisco · MikroTik · VLAN · QoS</p>
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:13px;color:var(--color-accent)">Ouvrir la fiche →</span>
+        </div>
+      </article>
+    </div>
+      <p data-no-projects hidden style="margin:24px 0 0;font-size:15px;color:var(--color-neutral-700)">Aucun projet dans cette catégorie pour le moment.</p>
+
+      <div style="margin-top:clamp(32px,6vh,60px);display:flex;flex-wrap:wrap;gap:16px clamp(24px,5vw,64px)">
+        <h3 data-anim style="flex:1 1 200px;margin:0;font-size:23px;text-transform:uppercase;letter-spacing:-0.01em">Également livré</h3>
+        <ul data-anim style="flex:3 1 320px;min-width:0;margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 clamp(24px,4vw,48px)">
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Manuel GOautodial</b> <span class="text-muted">en français pour agents, superviseurs et administrateurs</span></li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Formation agents</b> <span class="text-muted">pour un centre de contacts client (CallStream, Solutech)</span></li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Étude OSINT</b> <span class="text-muted">sur un éditeur logiciel togolais</span></li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Analyse forensique</b> <span class="text-muted">de mémoire vive</span></li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Serveur SFTP</b> <span class="text-muted">sécurisé sous Ubuntu 24.04</span></li>
+          <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Localisation</b> <span class="text-muted">anglais et français d'une interface de centre d'appels</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="border-top:2px solid var(--color-divider);background:var(--color-surface)">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:clamp(26px,5vh,44px)">
+        <h2 data-anim data-reveal style="margin:0;font-size:clamp(40px,7.4vw,104px);line-height:.92;letter-spacing:-0.042em;text-wrap:balance;text-transform:uppercase">Services<br>et parcours<span class="section-num">04</span></h2>
+        <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Ce sur quoi j'interviens en mission, et le chemin qui m'y a mené.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);margin-bottom:clamp(36px,6vh,64px)">
+        <div data-anim style="padding:20px 20px 20px 0;border-right:2px solid var(--color-divider)"><h3 style="margin:0 0 6px;font-size:20px">Architecture VoIP</h3><p class="text-muted" style="margin:0;font-size:14px">Asterisk, PJSIP, ARI, WebRTC, trunks SIP et passerelles GSM, du dimensionnement à la mise en production.</p></div>
+        <div data-anim style="padding:20px;border-right:2px solid var(--color-divider)"><h3 style="margin:0 0 6px;font-size:20px">Centre de contacts</h3><p class="text-muted" style="margin:0;font-size:14px">VICIdial et GOautodial : campagnes, modes de numérotation, écran agent, rapports et intégration CRM.</p></div>
+        <div data-anim style="padding:20px;border-right:2px solid var(--color-divider)"><h3 style="margin:0 0 6px;font-size:20px">Durcissement</h3><p class="text-muted" style="margin:0;font-size:14px">Audit non destructif, SELinux, firewalld, fail2ban, VPN et isolation du trafic SIP et RTP.</p></div>
+        <div data-anim style="padding:20px 0 20px 20px"><h3 style="margin:0 0 6px;font-size:20px">Réseau et conseil</h3><p class="text-muted" style="margin:0;font-size:14px">VLAN, QoS, dossiers d'appel d'offres, documentation et formation des équipes en français.</p></div>
+      </div>
+
+      <ol style="list-style:none;margin:0;padding:0;position:relative">
+        <li style="position:absolute;left:0;top:8px;bottom:8px;width:2px;background:var(--color-accent);transform-origin:top;animation:growY linear both;animation-timeline:view();animation-range:entry 40% cover 60%"></li>
+        <li data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px clamp(20px,4vw,48px);padding:0 0 34px 26px;position:relative">
+          <span style="position:absolute;left:-5px;top:8px;width:12px;height:12px;background:var(--color-accent)"></span>
+          <div class="mono" style="font-size:12px;margin-bottom:4px">2026</div>
+          <div style="grid-column:span 2"><h3 style="margin:0;font-size:23px">Master 1, Sécurité des SI et IoT</h3><p class="text-muted" style="margin:2px 0 6px;font-size:14px">UCAO-UUT, Lomé Togo</p><p style="margin:0;font-size:15px;max-width:60ch">Mémoire de recherche sur la détection comportementale des botnets IoT domestiques par machine learning léger, en logique Zero Trust.</p></div>
+        </li>
+        <li data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px clamp(20px,4vw,48px);padding:0 0 34px 26px;position:relative">
+          <span style="position:absolute;left:-5px;top:8px;width:12px;height:12px;background:var(--color-accent)"></span>
+          <div class="mono" style="font-size:12px;margin-bottom:4px">2023, en poste</div>
+          <div style="grid-column:span 2"><h3 style="margin:0;font-size:23px">Ingénieur systèmes, réseaux et VoIP</h3><p class="text-muted" style="margin:2px 0 6px;font-size:14px">ADKONTACT, Lomé Togo</p><p style="margin:0;font-size:15px;max-width:60ch">Centres de contacts, infrastructures clients et réponses aux appels d'offres. 98 % de qualité de service sur plus de 250 utilisateurs, 30 % d'incidents en moins.</p></div>
+        </li>
+        <li data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px clamp(20px,4vw,48px);padding:0 0 34px 26px;position:relative">
+          <span style="position:absolute;left:-5px;top:8px;width:12px;height:12px;background:var(--color-neutral-500)"></span>
+          <div class="mono" style="font-size:12px;margin-bottom:4px">2023</div>
+          <div style="grid-column:span 2"><h3 style="margin:0;font-size:23px">Stage IT</h3><p class="text-muted" style="margin:2px 0 6px;font-size:14px">TECH PRO, Lomé Togo</p><p style="margin:0;font-size:15px;max-width:60ch">D'avril à juin, avant l'entrée chez ADKONTACT.</p></div>
+        </li>
+        <li data-anim style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:4px clamp(20px,4vw,48px);padding:0 0 4px 26px;position:relative">
+          <span style="position:absolute;left:-5px;top:8px;width:12px;height:12px;background:var(--color-neutral-500)"></span>
+          <div class="mono" style="font-size:12px;margin-bottom:4px">2020 – 2023</div>
+          <div style="grid-column:span 2"><h3 style="margin:0;font-size:23px">Licence professionnelle, administration réseaux et systèmes</h3><p class="text-muted" style="margin:2px 0 6px;font-size:14px">Institut Polytechnique Defitech, Lomé Togo</p><p style="margin:0;font-size:15px;max-width:60ch">Projet de fin d'études : une infrastructure réseau complète, conçue en équipe.</p></div>
+        </li>
+      </ol>
+
+      <div style="margin-top:clamp(32px,5vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,3vw,44px);border-top:2px solid var(--color-divider);padding-top:24px">
+        <div data-anim>
+          <h3 style="margin:0 0 10px;font-size:20px;text-transform:uppercase;letter-spacing:-0.01em">Certifications</h3>
+          <dl style="margin:0">
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span>Microsoft AZ-800 / AZ-801</span><span class="text-muted" style="white-space:nowrap">Windows Server Hybrid</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span>Cisco NetAcad, CCNAv7 Introduction to Networks</span><span class="text-muted">2022</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span>Cisco NetAcad, Introduction to Cybersecurity</span><span class="text-muted">2024</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span>CCNA 200-301, SSCA, CompTIA Security+</span><span style="color:var(--color-accent-700);font-weight:600;white-space:nowrap">En préparation</span></dd>
+          </dl>
+        </div>
+        <div data-anim>
+          <h3 style="margin:0 0 10px;font-size:20px;text-transform:uppercase;letter-spacing:-0.01em">Recherche et communauté</h3>
+          <p class="text-muted" style="margin:0 0 12px;font-size:15px;max-width:52ch">« Peut-on repérer un objet connecté compromis à son seul comportement réseau, avec un modèle assez léger pour tourner à la maison ? » Je cherche à poursuivre ce travail dans un programme de master à l'international.</p>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px"><li class="tag tag-accent">Edge AI</li><li class="tag tag-outline">Zero Trust</li><li class="tag tag-outline">IoT</li><li class="tag tag-outline">ML léger</li><li class="tag tag-outline">ISOC Togo</li><li class="tag tag-outline">CTF</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="upwork" style="border-top:2px solid var(--color-divider)">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px clamp(24px,5vw,64px);align-items:end;margin-bottom:clamp(22px,4vh,36px)">
+        <h2 data-anim data-reveal style="margin:0;font-size:clamp(40px,7.4vw,104px);line-height:.92;letter-spacing:-0.042em;text-wrap:balance;text-transform:uppercase">Freelance<br>Upwork<span class="section-num">05</span></h2>
+        <p data-anim class="text-muted" style="margin:0;max-width:46ch;font-size:15px;text-wrap:pretty">Missions à distance sur l'infrastructure VoIP et la sécurité des serveurs, en français ou en anglais, depuis Lomé (UTC+0).</p>
+      </div>
+
+     <!-- <div data-anim style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:2px solid var(--color-accent);margin-bottom:24px">
+        <span style="width:10px;height:10px;background:var(--color-accent);flex:none"></span>
+        <p style="margin:0;font-size:13px;font-weight:600">Chiffres de démonstration — à remplacer par vos vraies données Upwork avant mise en ligne.</p>
+      </div> -->
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);margin-bottom:26px">
+        <div data-anim style="padding:20px 20px 20px 0;border-right:2px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1">5</div><div class="text-muted" style="font-size:13px;margin-top:4px">Domaines d'intervention</div></div>
+        <div data-anim style="padding:20px;border-right:2px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1">3+</div><div class="text-muted" style="font-size:13px;margin-top:4px">Ans d'expérience en production</div></div>
+        <div data-anim style="padding:20px;border-right:2px solid var(--color-divider)"><div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1">FR / EN</div><div class="text-muted" style="font-size:13px;margin-top:4px">Langues de travail</div></div>
+        <div data-anim style="padding:20px 0 20px 20px"><div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1;color:var(--color-accent)">24 h</div><div class="text-muted" style="font-size:13px;margin-top:4px">Délai de réponse visé</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(20px,3vw,44px)">
+        <div data-anim>
+          <h3 style="margin:0 0 12px;font-size:20px;text-transform:uppercase;letter-spacing:-0.01em">Ce que je prends en mission</h3>
+          <ul style="list-style:none;margin:0;padding:0">
+            <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Installation et configuration Asterisk</b> <span class="text-muted">— PJSIP, dialplan, ARI, enregistrement des appels</span></li>
+            <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Déploiement VICIdial / GOautodial</b> <span class="text-muted">— campagnes, agents, rapports</span></li>
+            <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>WebRTC et softphone navigateur</b> <span class="text-muted">— SIP.js, coturn, WSS</span></li>
+            <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Durcissement de serveurs Linux</b> <span class="text-muted">— SELinux, firewalld, fail2ban, VPN</span></li>
+            <li style="padding:12px 0;border-bottom:2px solid var(--color-divider);font-size:15px"><b>Dépannage SIP et qualité audio</b> <span class="text-muted">— traces, QoS, codecs, NAT</span></li>
+          </ul>
+        </div>
+        <div data-anim style="border:2px solid var(--color-divider);padding:24px;background:var(--color-surface);align-self:start">
+          <h3 style="margin:0 0 8px;font-size:20px">Profil freelance</h3>
+          <dl style="margin:0 0 18px">
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span class="text-muted">Statut</span><span style="font-weight:600">Disponible, temps partiel</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span class="text-muted">Fuseau</span><span style="font-weight:600">UTC+0, Lomé</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span class="text-muted">Langues</span><span style="font-weight:600">FR / EN</span></dd>
+            <dd style="margin:0;display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:2px solid var(--color-divider);font-size:14px"><span class="text-muted">Plateformes</span><span style="font-weight:600">Upwork, Freelancer</span></dd>
+          </dl>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/~01d9ac518a6ed8e1fc" target="_blank" rel="noopener">Voir mon profil Upwork</a>
+            <a class="btn btn-secondary" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--color-accent-700);color:#fff">
+    <div style="max-width:1240px;margin:0 auto;padding:clamp(64px,13vh,160px) clamp(16px,4vw,40px)">
+      <h2 data-anim data-reveal style="margin:0;font-size:clamp(34px,6vw,86px);line-height:.94;letter-spacing:-0.04em;max-width:19ch;color:#fff;text-transform:uppercase">Un projet de téléphonie, un serveur à sécuriser, un appel d'offres ?</h2>
+      <p data-anim style="margin:24px 0 32px;max-width:56ch;font-size:16px;color:#fff">Je réponds depuis Lomé (UTC+0), en français ou en anglais, pour des missions freelance, des projets d'entreprise et des programmes de master.</p>
+      <form data-anim data-contact-form action="https://api.web3forms.com/submit" method="POST" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px;margin:0 0 40px;max-width:820px">
+        <input type="hidden" name="access_key" value="09ee3a74-0e94-4d6a-becb-2c072c3c65dc">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="c-nom" style="color:#fff;font-size:12px">Nom</label>
+          <input class="input" id="c-nom" name="name" type="text" required autocomplete="name" style="background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;min-height:44px" />
+        </div>
+        <div class="field">
+          <label for="c-email" style="color:#fff;font-size:12px">Adresse e-mail</label>
+          <input class="input" id="c-email" name="email" type="email" required autocomplete="email" style="background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;min-height:44px" />
+        </div>
+        <div class="field">
+            <label for="c-tel" style="color:#fff;font-size:12px">Téléphone <span style="opacity:.7">(facultatif)</span></label>
+            <input class="input" id="c-tel" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+         placeholder="+228 90 00 00 00"
+         style="background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;min-height:44px" />
+       </div>
+        <div class="field" style="grid-column:1/-1">
+          <label for="c-sujet" style="color:#fff;font-size:12px">Sujet</label>
+          <input class="input" id="c-sujet" name="subject" type="text" style="background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;min-height:44px" />
+        </div>
+        <div class="field" style="grid-column:1/-1">
+          <label for="c-message" style="color:#fff;font-size:12px">Message</label>
+          <textarea class="input" id="c-message" name="message" rows="5" required style="background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;min-height:120px"></textarea>
+        </div>
+        <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+          <button class="btn submit-btn" type="submit" style="background:#fff;color:var(--color-accent-700);border-color:#fff;min-height:44px;padding-inline:20px">Envoyer le message</button>
+          <p data-mail-status style="margin:0;font-size:14px;color:#fff"></p>
+        </div>
+      </form>
+
+      <ul style="list-style:none;margin:0;padding:0;border-top:2px solid rgba(255,255,255,.55)">
+        <li><a class="social-link" href="https://www.linkedin.com/in/theophile-doumashie" target="_blank" rel="noopener" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:16px 4px;border-bottom:2px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;transition:padding-left .3s"><span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(22px,3.4vw,40px);letter-spacing:-0.02em">LinkedIn</span><span style="font-size:13px;opacity:.85">/in/theophile-doumashie</span></a></li>
+        <li><a class="social-link" href="https://github.com/theophile-doumashie" target="_blank" rel="noopener" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:16px 4px;border-bottom:2px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;transition:padding-left .3s"><span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(22px,3.4vw,40px);letter-spacing:-0.02em">GitHub</span><span style="font-size:13px;opacity:.85">theophile-doumashie</span></a></li>
+        <li><a class="social-link" href="https://www.freelancer.com/u/devopscamesec" target="_blank" rel="noopener" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:16px 4px;border-bottom:2px solid rgba(255,255,255,.55);text-decoration:none;color:#fff;transition:padding-left .3s"><span style="font-family:var(--font-heading);font-weight:800;font-size:clamp(22px,3.4vw,40px);letter-spacing:-0.02em">Freelancer</span><span style="font-size:13px;opacity:.85">@devopscamesec</span></a></li>
+      </ul>
+    </div>
+  </section>
+  </main>
+
+  <Footer />
+
+  <div class="dialog-backdrop" data-modal-backdrop role="dialog" aria-modal="true" aria-label="Fiche projet" hidden style="z-index:100;place-items:start center;padding:clamp(16px,4vh,60px) clamp(16px,4vw,40px);overflow:auto;animation:veil .22s ease-out both">
+    <div class="dialog" tabindex="-1" style="width:min(860px,100%);gap:0;padding:0;background:var(--color-bg);border:2px solid var(--color-text);animation:popIn .32s cubic-bezier(.2,.7,.2,1) both">
+      <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:20px 20px 16px;border-bottom:2px solid var(--color-divider)">
+        <div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px">
+            <span class="tag tag-accent" data-m-cat></span>
+            <span class="text-muted" style="font-size:13px" data-m-status></span>
+          </div>
+          <h3 class="dialog-title" style="margin:0;font-size:clamp(21px,3vw,32px);line-height:1.08;letter-spacing:-0.02em" data-m-title></h3>
+        </div>
+        <button type="button" aria-label="Fermer" data-modal-close class="btn btn-secondary" style="flex:none">Fermer ✕</button>
+      </div>
+      <div style="padding:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px clamp(20px,3vw,40px)">
+        <div>
+          <h4 style="margin:0 0 8px;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-accent-700)">Contexte</h4>
+          <p style="margin:0;font-size:15px" data-m-context></p>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-accent-700)">Décisions</h4>
+          <ul style="margin:0;padding-left:16px;font-size:15px;display:flex;flex-direction:column;gap:7px" data-m-decisions></ul>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-accent-700)">Résultat</h4>
+          <p style="margin:0;font-size:15px" data-m-outcome></p>
+        </div>
+        <ul style="grid-column:1/-1;list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px" data-m-tech></ul>
+        <a href="#" target="_blank" rel="noopener" class="btn btn-primary" data-m-link style="grid-column:1/-1;justify-self:start">Voir le dépôt sur GitHub</a>
+      </div>
+    </div>
+  </div>
+
+<script is:inline src="/assets/site.js"></script>
+<script is:inline type="module" src="/assets/hero3d.js"></script>
+<!-- juste avant </body> -->
+<script is:inline src="/assets/scroll-fx.js" defer></script>
+</body>
+</html>

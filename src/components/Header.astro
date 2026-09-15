@@ -1,0 +1,22 @@
+---
+// En-tete commun au portfolio et au blog.
+---
+  <header style="position:sticky;top:0;z-index:80;background:color-mix(in srgb, var(--color-bg) 90%, transparent);backdrop-filter:blur(10px);border-bottom:2px solid var(--color-divider)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px);height:60px;display:flex;align-items:center;gap:20px;position:relative">
+      <a href="/#accueil" style="font-family:var(--font-heading);font-weight:800;font-size:15px;letter-spacing:-0.01em;text-decoration:none;color:var(--color-text);white-space:nowrap">Théophile Doumashie<span style="color:var(--color-accent)">.</span></a>
+      <nav data-navlinks class="nav-links" aria-label="Navigation principale">
+        <a class="nav-link" href="/#accueil" style="text-decoration:none;color:var(--color-text);padding:12px 0">Accueil</a>
+        <a class="nav-link" href="/#apropos" style="text-decoration:none;color:var(--color-text);padding:12px 0">À propos</a>
+        <a class="nav-link" href="/#competences" style="text-decoration:none;color:var(--color-text);padding:12px 0">Compétences</a>
+        <a class="nav-link" href="/#projets" style="text-decoration:none;color:var(--color-text);padding:12px 0">Projets</a>
+        <a class="nav-link" href="/#services" style="text-decoration:none;color:var(--color-text);padding:12px 0">Services</a>
+        <a class="nav-link" href="/#upwork" style="text-decoration:none;color:var(--color-text);padding:12px 0">Upwork</a>
+        <a href="/#contact" style="text-decoration:none;color:var(--color-accent);font-weight:800;padding:12px 0">Contact</a>
+      </nav>
+      <button data-burger class="btn btn-icon burger-btn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" style="align-items:center;justify-content:center;width:44px;height:44px;background:none;border:2px solid var(--color-text);cursor:pointer;padding:0;gap:4px;flex-direction:column">
+        <span data-bar style="display:block;width:18px;height:2px;background:var(--color-text);transition:transform .3s,opacity .3s"></span>
+        <span data-bar style="display:block;width:18px;height:2px;background:var(--color-text);transition:transform .3s,opacity .3s"></span>
+        <span data-bar style="display:block;width:18px;height:2px;background:var(--color-text);transition:transform .3s,opacity .3s"></span>
+      </button>
+    </div>
+  </header>
